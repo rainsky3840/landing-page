@@ -1,0 +1,271 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+/* background */
+.bgimg {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("assets/img_t1.jpg");
+  min-height: 100%;
+}
+
+.bgimg-2 {
+  background-image: url("assets/img_t2.jpg");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("assets/img_t3.jpg");
+  min-height: 400px;
+}
+
+.bgimg-4 {
+  background-image: url("assets/img_t4.jpg");
+  min-height: 400px;
+}
+
+.bgimg-5 {
+  background-image: url("assets/img_t5.jpg");
+  min-height: 100%;
+}
+
+.pg-light {
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+.pg-dark {
+  color:#ddd;
+  background-color:#282E34;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+span>a {
+  color: yellow;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.caption span.subtitle {
+  background-color:transparent;
+  font-size:25px;
+  color: #f7f7f7;
+}
+
+.caption .contacts {
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+.contacts a {
+  text-decoration: none;
+  color: black;
+}
+
+.contacts a:hover {
+  color: #555;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg {
+    background-attachment: scroll;
+  }
+}
+
+/* image album */
+.pg-album {
+  color: #777;
+  background-color:white;
+  text-align: center;
+  padding: 50px;
+}
+
+/* IMAGE CONTAINER */
+.gallery {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+.gallery-image img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  object-position: bottom;
+  margin: 5px;
+  border-radius: 1rem;
+}
+.gallery-image img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 80%;
+  max-width: 1600px;
+  height: 90vh;
+  max-height: 800px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  overflow: hidden;
+  transition: .5s;
+  opacity: 0;
+}
+.popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.popup.active .close-btn,
+.popup.active .image-name,
+.popup.active .index,
+.popup.active .large-image,
+.popup.active .arrow-btn {
+  opacity: 1;
+  transition: opacity .5s;
+  transition-delay: .5s;
+}
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: black;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 300px;
+}
+.top-bar p {
+  margin: 0 auto;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+  opacity: 0;
+}
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+  font-size: larger;
+  opacity: 0;
+}
+.left-arrow {
+  left: 10px;
+  opacity: 0;
+}
+.right-arrow {
+  right: 10px;
+  /* transform: translateY(-50%) rotate 180deg; */
+  opacity: 0;
+}
+.arrow-btn:hover {
+  /* background: rgba(0,0,0,0.5); */
+  color: #777;
+  opacity: 0;
+}
+.index {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 72px;
+  font-weight: 100;
+  color: rgba(255,255,255,0.4);
+  opacity: 0;
+}
+.large-image {
+  margin-top: 5%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  opacity: 0;
+}
+.image-name {
+  opacity: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .gallery-image img {
+    width: 90vw;
+  }
+  .popup {
+    height: 80%;
+    width: 100%;
+  }
+  .arrow-btn {
+    top: 90%;
+  }
+  .index {
+    visibility: collapse;
+  }
+  .large-image {
+    width: 95%;
+  }
+  .pg-light, .pg-dark {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+}
